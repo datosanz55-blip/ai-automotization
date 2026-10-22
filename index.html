@@ -11,15 +11,25 @@
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="УралСМТ — перегон техники своим ходом по России">
-  <meta property="og:description" content="Перегон грузовиков, спецтехники и автобусов, перевозка на тралах, крепление ЗИП. Тарифы от 38 ₽/км.">
+  <meta property="og:title" content="УралСМТ — перегон грузовых автомобилей и спецтехники по России">
+  <meta property="og:description" content="ООО «УралСибМегаТранс» — перегон грузовых автомобилей, спецтехники и автобусов своим ходом по всей России, перевозка на тралах, монтаж и крепление ЗИП. Тарифы от 38 ₽/км. Челябинск.">
   <meta property="og:image" content="assets/img/about-lineup.webp">
+
+  <script>
+    /* Если пришли с другой страницы сайта — сразу закрыть экран шторкой, чтобы не было вспышки */
+    (function (d) {
+      d.documentElement.classList.add('js');
+      try {
+        var t = sessionStorage.getItem('pt-title');
+        if (t !== null) { d.documentElement.classList.add('pt-enter'); window.__ptTitle = t; sessionStorage.removeItem('pt-title'); }
+      } catch (e) {}
+    })(document);
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,10 +51,23 @@
     "areaServed": "RU"
   }
   </script>
-</head>
-<body>
 
-<!-- Иконки -->
+</head>
+<body class="page-index">
+
+<!-- Шторка перехода между страницами -->
+<div class="pt" aria-hidden="true">
+  <div class="pt__layer pt__layer--a"></div>
+  <div class="pt__layer pt__layer--b">
+    <div class="pt__inner">
+      <span class="pt__label mono">УралСМТ · перегон по России</span>
+      <span class="pt__title"><span id="pt-title"></span></span>
+      <div class="pt__route"><i></i></div>
+    </div>
+  </div>
+</div>
+<script>if (window.__ptTitle) document.getElementById('pt-title').textContent = window.__ptTitle;</script>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-road" viewBox="0 0 32 32"><path d="M11 3 6 29M21 3l5 26M16 5v4M16 14v4M16 23v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
@@ -67,18 +90,19 @@
   </defs>
 </svg>
 
+
 <header class="header" id="header">
   <div class="header__inner">
-    <a href="#top" class="logo" aria-label="УралСМТ — на главную">
+    <a href="index.html" class="logo" aria-label="УралСМТ — на главную">
       <span class="logo__mark">УРАЛ<b>СМТ</b></span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
-      <a href="#about">О компании</a>
-      <a href="#services">Услуги</a>
-      <a href="#tariffs">Тарифы</a>
-      <a href="#works">Наши работы</a>
-      <a href="#drivers">Водителям</a>
-      <a href="#contacts">Контакты</a>
+      <a href="about.html">О компании</a>
+      <a href="services.html">Услуги</a>
+      <a href="tariffs.html">Тарифы</a>
+      <a href="works.html">Работы</a>
+      <a href="drivers.html">Водителям</a>
+      <a href="contacts.html">Контакты</a>
     </nav>
     <div class="header__right">
       <a class="header__phone" href="tel:+79220125489">8 (922) 012-54-89</a>
@@ -90,12 +114,13 @@
 
 <div class="mobile-menu" id="mobile-menu" hidden>
   <nav aria-label="Мобильная навигация">
-    <a href="#about">О компании</a>
-    <a href="#services">Услуги</a>
-    <a href="#tariffs">Тарифы</a>
-    <a href="#works">Наши работы</a>
-    <a href="#drivers">Водителям</a>
-    <a href="#contacts">Контакты</a>
+    <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="services.html">Услуги</a>
+      <a href="tariffs.html">Тарифы</a>
+      <a href="works.html">Работы</a>
+      <a href="drivers.html">Водителям</a>
+      <a href="contacts.html">Контакты</a>
   </nav>
   <div class="mobile-menu__foot">
     <a href="tel:+79220125489">8 (922) 012-54-89</a>
@@ -105,7 +130,6 @@
 </div>
 
 <main id="top">
-
   <!-- ================= HERO ================= -->
   <section class="hero" aria-label="Главный экран">
     <div class="hero__bar">
@@ -119,7 +143,7 @@
         </div>
       </div>
       <div class="hero__bar-right">
-        <a href="#calc">Калькулятор стоимости</a>
+        <a href="tariffs.html#calc">Калькулятор стоимости</a>
         <span class="sep">|</span>
         <span>Пн–Вс 7:00–18:00 (UTC+5)</span>
       </div>
@@ -136,8 +160,8 @@
       </h1>
       <p class="hero__lead">Перегоняем грузовые автомобили, спецтехнику и автобусы своим ходом и на тралах по всей России. Одна команда отвечает за технику от приёмки до передачи заказчику.</p>
       <div class="hero__actions">
-        <a href="#calc" class="btn btn--white">Рассчитать стоимость</a>
-        <a href="#services" class="btn btn--ghost">Наши услуги</a>
+        <a href="tariffs.html#calc" class="btn btn--white">Рассчитать стоимость</a>
+        <a href="services.html" class="btn btn--ghost">Наши услуги</a>
       </div>
     </div>
     <div class="hero__hint" aria-hidden="true"><span></span>Листайте</div>
@@ -160,7 +184,7 @@
       <div class="about__text reveal">
         <p>ООО «УралСибМегаТранс» специализируется на перегоне автотранспорта и спецтехники по территории Российской Федерации <strong>своим ходом</strong>. Наши специалисты профессионально и оперативно решают вопросы доставки техники.</p>
         <p>Один договор, один менеджер и прозрачные условия — без перекладывания ответственности между подрядчиками. К каждому клиенту — индивидуальный подход.</p>
-        <a href="#process" class="btn btn--outline btn--sm">Как мы работаем</a>
+        <a href="about.html" class="btn btn--outline btn--sm">Подробнее о компании</a>
       </div>
 
       <p class="stats__caption reveal">Цифры, за которыми — реальные рейсы</p>
@@ -182,12 +206,12 @@
   </section>
 
   <!-- ================= СЦЕНА С ГРУЗОВИКОМ ================= -->
-  <section class="drive" id="services" aria-label="Наши услуги">
+  <section class="drive" aria-label="Наши услуги">
     <div class="drive__sticky">
-      <div class="drive__speed mono"><span id="speed">00</span> КМ/Ч</div>
+      <div class="drive__speed mono"><span class="speed">00</span> КМ/Ч</div>
       <div class="drive__word" aria-hidden="true">Наши услуги</div>
-      <div class="drive__truck" id="truck" aria-hidden="true">
-        <svg viewBox="0 0 640 234" class="truck-svg">
+      <div class="drive__truck" aria-hidden="true">
+<svg viewBox="0 0 640 234" class="truck-svg">
           <!-- кунг -->
           <rect x="18" y="38" width="368" height="132" rx="3" fill="#e9e9ea"/>
           <rect x="18" y="38" width="368" height="132" rx="3" fill="url(#kungShade)"/>
@@ -218,13 +242,14 @@
             <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
           </defs>
         </svg>
+
       </div>
       <div class="drive__road" aria-hidden="true"></div>
     </div>
   </section>
 
   <!-- ================= УСЛУГИ ================= -->
-  <section class="services">
+  <section class="services" id="services">
     <div class="container services__head">
       <h2 class="h-display h-display--light reveal">
         Всё, что нужно вашей технике.<br>
@@ -238,7 +263,7 @@
     <div class="container">
       <ul class="svc-grid">
         <li class="svc reveal">
-          <a href="#peregon" class="svc__link">
+          <a href="peregon.html" class="svc__link">
             <svg class="svc__icon"><use href="#i-road"/></svg>
             <h3>Перегон<br>своим ходом</h3>
             <p>Колёсная техника, грузовики и автобусы — с опытными водителями категорий C, D, E по всей России.</p>
@@ -246,7 +271,7 @@
           </a>
         </li>
         <li class="svc reveal">
-          <a href="#tral" class="svc__link">
+          <a href="tral.html" class="svc__link">
             <svg class="svc__icon"><use href="#i-tral"/></svg>
             <h3>Перевозка<br>на тралах</h3>
             <p>Габаритные и негабаритные грузы по России и СНГ: спецтехника, оборудование, гусеничная техника.</p>
@@ -254,7 +279,7 @@
           </a>
         </li>
         <li class="svc reveal">
-          <a href="#zip" class="svc__link">
+          <a href="zip.html" class="svc__link">
             <svg class="svc__icon"><use href="#i-lock"/></svg>
             <h3>Монтаж<br>и крепление ЗИП</h3>
             <p>Изготовление ящиков, укомплектование, монтаж и надёжное крепление груза с фото- и видеофиксацией.</p>
@@ -262,7 +287,7 @@
           </a>
         </li>
         <li class="svc reveal">
-          <a href="#adblue" class="svc__link">
+          <a href="adblue.html" class="svc__link">
             <svg class="svc__icon"><use href="#i-drop"/></svg>
             <h3>Отключение<br>AdBlue</h3>
             <p>Решаем проблемы системы SCR: без потери мощности, аварийного режима и дорогого ремонта.</p>
@@ -294,232 +319,38 @@
           </button>
         </li>
       </ul>
+
       <div class="services__foot reveal">
-        <button class="btn btn--ghost" data-open-order>Заказать услугу</button>
+        <a href="services.html" class="btn btn--ghost">Все услуги</a>
       </div>
     </div>
   </section>
 
-  <!-- ================= ПЕРЕГОН + ТАРИФЫ ================= -->
-  <section class="tariffs" id="tariffs">
-    <div class="container">
-      <div class="section-head" id="peregon">
-        <p class="eyebrow">Перегон своим ходом · Тарифы</p>
-        <h2 class="h-display reveal"><span class="muted">Честная цена</span><br>за каждый километр</h2>
-        <p class="section-head__text reveal">Стоимость зависит от колёсной формулы и массы техники. Возможна отсрочка платежа и индивидуальные предложения для постоянных клиентов.</p>
-      </div>
-
-      <div class="tabs reveal" role="tablist" aria-label="Тип техники">
-        <button class="tab is-active" role="tab" aria-selected="true" aria-controls="tp-awd" id="t-awd" data-tab="awd">Полноприводные</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tp-road" id="t-road" data-tab="road">Шоссейные</button>
-      </div>
-
-      <div class="tariff-panels">
-        <div class="tariff-panel is-active" id="tp-awd" role="tabpanel" aria-labelledby="t-awd" data-panel="awd"></div>
-        <div class="tariff-panel" id="tp-road" role="tabpanel" aria-labelledby="t-road" data-panel="road" hidden></div>
-      </div>
-      <p class="note">* Цены указаны «от». Возможна отсрочка платежа, индивидуальные предложения.</p>
-
-      <!-- Калькулятор -->
-      <div class="calc reveal" id="calc">
-        <div class="calc__head">
-          <p class="eyebrow eyebrow--light">Калькулятор</p>
-          <h3 class="calc__title">Предварительный расчёт перегона</h3>
-          <p class="calc__sub">Оценка по базовому тарифу. Точную стоимость менеджер назовёт после согласования маршрута и сроков.</p>
-        </div>
-        <form class="calc__form" id="calc-form" onsubmit="return false">
-          <label class="field">
-            <span>Тип техники</span>
-            <select name="group" id="calc-group">
-              <option value="awd">Полноприводная</option>
-              <option value="road">Шоссейная</option>
-            </select>
-          </label>
-          <label class="field">
-            <span>Колёсная формула</span>
-            <select name="formula" id="calc-formula"></select>
-          </label>
-          <label class="field">
-            <span>Масса</span>
-            <select name="tonnage" id="calc-tonnage">
-              <option value="0">до 10 тонн</option>
-              <option value="1">до 16 тонн</option>
-              <option value="2">до 25 тонн</option>
-            </select>
-          </label>
-          <label class="field field--wide">
-            <span>Расстояние, км</span>
-            <div class="range">
-              <input type="range" id="calc-range" min="50" max="10000" step="50" value="2000" aria-label="Расстояние, км">
-              <input type="number" id="calc-km" min="1" max="15000" value="2000" inputmode="numeric" aria-label="Расстояние в километрах">
-            </div>
-          </label>
-        </form>
-        <div class="calc__result">
-          <div>
-            <div class="calc__label">Ставка</div>
-            <div class="calc__rate"><span id="calc-rate">40</span> ₽/км</div>
-          </div>
-          <div>
-            <div class="calc__label">Стоимость перегона</div>
-            <div class="calc__total">от <span id="calc-total">80 000</span> ₽</div>
-          </div>
-          <button class="btn btn--white" id="calc-order">Отправить заявку с расчётом</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ПРОЦЕСС ================= -->
-  <section class="process" id="process">
-    <div class="container process__grid">
-      <div class="process__left">
-        <div class="process__sticky">
-          <h2 class="h-display reveal"><span class="muted">Надёжность</span><br>на каждом этапе</h2>
-          <p class="process__text reveal">Пять шагов от звонка до передачи техники. Работаем по договору, все условия фиксируем до старта.</p>
-        </div>
-      </div>
-      <div class="process__road" aria-hidden="true">
-        <div class="road-truck">
-          <svg viewBox="0 0 60 150"><rect x="8" y="2" width="44" height="34" rx="6" fill="#222227"/><rect x="12" y="6" width="36" height="10" rx="3" fill="#6f8db4"/><rect x="6" y="40" width="48" height="106" rx="3" fill="#e9e9ea"/><rect x="6" y="40" width="48" height="4" fill="#ff5a1f"/><g stroke="#cfcfd2" stroke-width="1.5"><line x1="6" y1="62" x2="54" y2="62"/><line x1="6" y1="84" x2="54" y2="84"/><line x1="6" y1="106" x2="54" y2="106"/><line x1="6" y1="128" x2="54" y2="128"/></g></svg>
-        </div>
-      </div>
-      <ol class="steps">
-        <li class="step reveal">
-          <span class="step__n mono">01</span>
-          <svg class="step__icon"><use href="#i-phone"/></svg>
-          <h3>Заявка</h3>
-          <p>Вы оставляете заявку на сайте или звоните по телефону <a href="tel:+79220125489">8 (922) 012-54-89</a>.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__n mono">02</span>
-          <svg class="step__icon"><use href="#i-user"/></svg>
-          <h3>Связь с менеджером</h3>
-          <p>Персональный менеджер связывается с вами, уточняет технику, маршрут и сроки.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__n mono">03</span>
-          <svg class="step__icon"><use href="#i-handshake"/></svg>
-          <h3>Согласование и договор</h3>
-          <p>Согласовываем все условия и заключаем договор-заявку с ответственностью сторон.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__n mono">04</span>
-          <svg class="step__icon"><use href="#i-pin"/></svg>
-          <h3>Доставка</h3>
-          <p>Осуществляем перегон, на связи на протяжении всего маршрута — вы знаете, где техника.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__n mono">05</span>
-          <svg class="step__icon"><use href="#i-ruble"/></svg>
-          <h3>Окончательный расчёт</h3>
-          <p>Передаём технику и закрывающие документы. Новым клиентам — 50% при загрузке, 50% по факту.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ================= ТРАЛ ================= -->
-  <section class="tral" id="tral">
-    <div class="tral__media">
-      <img src="assets/img/tral-urals.webp" alt="Автомобили «Урал» на низкорамных тралах" loading="lazy" width="1600" height="1200">
-    </div>
-    <div class="container tral__inner">
-      <div class="tral__head">
-        <p class="eyebrow eyebrow--light">Перевозка тралом</p>
-        <h2 class="h-display h-display--light reveal">Негабарит<br><span class="muted-dark">по России и СНГ</span></h2>
-        <p class="tral__lead reveal">Обеспечиваем доставку крупногабаритных и тяжеловесных грузов любой сложности. Подбираем специальный транспорт и прокладываем отдельный маршрут.</p>
-      </div>
-      <ul class="cargo">
-        <li class="cargo__item reveal"><span class="mono">01</span><h3>Промышленное оборудование</h3><p>Трансформаторы, станки, прессы, турбины</p></li>
-        <li class="cargo__item reveal"><span class="mono">02</span><h3>Спецтехника</h3><p>Краны, экскаваторы</p></li>
-        <li class="cargo__item reveal"><span class="mono">03</span><h3>Военная техника</h3><p>Гусеничная и колёсная техника, части самолётов</p></li>
-        <li class="cargo__item reveal"><span class="mono">04</span><h3>Сельхозтехника</h3><p>Тракторы, сеялки, опрыскиватели</p></li>
-      </ul>
-      <div class="tral__photos">
-        <figure class="reveal"><img src="assets/img/tral-ural.webp" alt="Урал на трале" loading="lazy" width="1280" height="959"></figure>
-        <figure class="reveal"><img src="assets/img/tral-trolleybus.webp" alt="Перевозка троллейбуса на трале" loading="lazy" width="1200" height="1600"></figure>
-        <figure class="reveal"><img src="assets/img/tral-kamaz.webp" alt="Тягач с тралом и спецтехникой" loading="lazy" width="1600" height="1200"></figure>
-      </div>
-      <div class="tral__cta reveal">
-        <button class="btn btn--white" data-open-order data-service="Перевозка техники на тралах">Рассчитать перевозку тралом</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ЗИП ================= -->
-  <section class="zip container" id="zip">
+  <!-- ================= ТАРИФЫ (КРАТКО) ================= -->
+  <section class="teaser container">
     <div class="section-head">
-      <p class="eyebrow">Монтаж груза и крепление ЗИП</p>
-      <h2 class="h-display reveal"><span class="muted">Груз доедет</span><br>в том виде, в каком уехал</h2>
+      <p class="eyebrow">Тарифы</p>
+      <h2 class="h-display reveal"><span class="muted">Честная цена</span><br>за каждый километр</h2>
     </div>
-    <div class="zip__grid">
-      <div class="zip__text reveal">
-        <p>Изготавливаем, укомплектовываем, монтируем и крепим запасные части, инструменты и принадлежности. Крепим оборудование, контейнеры, легковые автомобили, грузовую технику и негабаритные грузы.</p>
-        <p>Материалы подбираем под груз: коники, ремни, ложементы, цепи, сети, металлические и деревянные распорки, пневмопакеты, проволока. На каждом этапе — фото- и видеофиксация, вся работа подкреплена документами.</p>
-        <div class="methods">
-          <details class="method" open>
-            <summary><span class="mono">01</span> Растяжками</summary>
-            <p>Цепи, тросы, ремни, проволока. За счёт натяжения предотвращается завал, сдвиг и опрокидывание груза.</p>
-          </details>
-          <details class="method">
-            <summary><span class="mono">02</span> Блокировкой</summary>
-            <p>Груз устанавливается вплотную к бортам, распоркам или другим грузам, пустоты заполняются амортизирующим материалом. Исключает движение по вертикали и горизонтали.</p>
-          </details>
-          <details class="method">
-            <summary><span class="mono">03</span> Прижимом</summary>
-            <p>Увеличение силы трения между платформой и грузом. Как правило, применяется как дополнительное крепление.</p>
-          </details>
-        </div>
-      </div>
-      <div class="zip__side">
-        <figure class="zip__photo reveal"><img src="assets/img/zip-boxes.webp" alt="Ящики ЗИП, закреплённые на шасси" loading="lazy" width="1280" height="721"></figure>
-        <ul class="price-list reveal">
-          <li><span>Укомплектование ЗИП</span><b>от 7 000 ₽</b></li>
-          <li><span>Монтаж ЗИП</span><b>от 5 000 ₽</b></li>
-          <li><span>Укомплектование автомобилей</span><b>от 10 000 ₽</b></li>
-          <li><span>Изготовление ящиков</span><b>от 5 000 ₽</b></li>
-          <li><span>Монтаж и крепление груза</span><b>от 15 000 ₽</b></li>
-        </ul>
-        <button class="btn btn--dark reveal" data-open-order data-service="Крепление грузов">Заказать монтаж и крепление</button>
-      </div>
+    <div class="teaser__grid">
+      <a href="tariffs.html" class="teaser__card reveal">
+        <span class="mono">Шоссейные · 4×2, 6×4, 8×4</span>
+        <span class="teaser__price">от <b>38</b> ₽/км</span>
+        <span class="teaser__more">Все тарифы <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="tariffs.html" class="teaser__card reveal">
+        <span class="mono">Полноприводные · 4×4, 6×6, 8×4</span>
+        <span class="teaser__price">от <b>40</b> ₽/км</span>
+        <span class="teaser__more">Все тарифы <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="tariffs.html#calc" class="teaser__card teaser__card--dark reveal">
+        <span class="mono">Калькулятор</span>
+        <span class="teaser__price teaser__price--sm">Рассчитайте перегон за&nbsp;минуту</span>
+        <span class="teaser__more">Рассчитать <svg><use href="#i-arrow"/></svg></span>
+      </a>
     </div>
   </section>
 
-  <!-- ================= ADBLUE ================= -->
-  <section class="adblue" id="adblue">
-    <div class="container adblue__grid">
-      <div>
-        <p class="eyebrow">Отключение AdBlue</p>
-        <h2 class="h-display reveal"><span class="muted">Без аварийного</span><br>режима</h2>
-        <p class="adblue__lead reveal">Система SCR (AdBlue, мочевина) разработана под европейские экологические нормы и часто выходит из строя на российских дорогах: реагент замерзает при −11 °C, а запчасти и обслуживание стоят дорого.</p>
-        <figure class="adblue__photo reveal"><img src="assets/img/adblue-1.webp" alt="Работы с системой SCR грузового автомобиля" loading="lazy" width="1500" height="951"></figure>
-      </div>
-      <div class="adblue__cols">
-        <div class="reveal">
-          <h3 class="list-title">Чем грозит неисправность</h3>
-          <ul class="dash-list">
-            <li>обороты двигателя снижаются на 40–50%</li>
-            <li>автомобиль ограничивает мощность</li>
-            <li>включается аварийный режим</li>
-          </ul>
-        </div>
-        <div class="reveal">
-          <h3 class="list-title">Что вы получаете</h3>
-          <ul class="check-list">
-            <li><svg><use href="#i-check"/></svg>эксплуатация без повышения расхода топлива</li>
-            <li><svg><use href="#i-check"/></svg>без потери мощности и кодов неисправности</li>
-            <li><svg><use href="#i-check"/></svg>нет затрат на дорогостоящий ремонт и заправки AdBlue</li>
-            <li><svg><use href="#i-check"/></svg>процесс обратим при необходимости</li>
-          </ul>
-        </div>
-        <p class="adblue__note reveal">Работаем с проверенным оборудованием и материалами, изучаем каждую модель и учитываем технические требования производителя.</p>
-        <button class="btn btn--dark reveal" data-open-order data-service="Отключение AdBlue">Записаться на работы</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ПОЧЕМУ МЫ ================= -->
   <section class="why" id="why">
     <div class="why__bg"><img src="assets/img/work-irkutsk-1.webp" alt="" loading="lazy" width="1600" height="1200"></div>
     <div class="container why__inner">
@@ -536,6 +367,7 @@
     </div>
   </section>
 
+
   <!-- ================= НАШИ РАБОТЫ ================= -->
   <section class="works" id="works">
     <div class="container works__head">
@@ -545,6 +377,7 @@
         <div class="works__nav">
           <button class="round-btn" data-scroll="-1" aria-label="Назад"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
           <button class="round-btn" data-scroll="1" aria-label="Вперёд"><svg><use href="#i-arrow"/></svg></button>
+          <a href="works.html" class="btn btn--outline btn--sm">Все работы</a>
         </div>
       </div>
     </div>
@@ -556,15 +389,10 @@
       <figure class="work"><button data-lightbox="assets/img/tral-night.webp"><img src="assets/img/tral-night.webp" alt="Трал с техникой ночью" loading="lazy"></button><figcaption><span class="mono">Трал</span>Перевозка спецтехники</figcaption></figure>
       <figure class="work"><button data-lightbox="assets/img/work-never.webp"><img src="assets/img/work-never.webp" alt="КАМАЗ с крано-манипуляторной установкой" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Невер</figcaption></figure>
       <figure class="work"><button data-lightbox="assets/img/work-magnitogorsk.webp"><img src="assets/img/work-magnitogorsk.webp" alt="Техника на выставке в Магнитогорске" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Магнитогорск</figcaption></figure>
-      <figure class="work"><button data-lightbox="assets/img/work-ustluga.webp"><img src="assets/img/work-ustluga.webp" alt="Автобетоносмесители на шасси Урал" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Усть-Луга</figcaption></figure>
       <figure class="work"><button data-lightbox="assets/img/bus-paz.webp"><img src="assets/img/bus-paz.webp" alt="Автобусы ПАЗ" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Автобусы ПАЗ</figcaption></figure>
-      <figure class="work"><button data-lightbox="assets/img/work-chelyabinsk.webp"><img src="assets/img/work-chelyabinsk.webp" alt="КАМАЗ на площадке" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Челябинск</figcaption></figure>
-      <figure class="work"><button data-lightbox="assets/img/crane-ural.webp"><img src="assets/img/crane-ural.webp" alt="Автокран на шасси Урал" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Автокраны</figcaption></figure>
-      <figure class="work"><button data-lightbox="assets/img/work-chikan.webp"><img src="assets/img/work-chikan.webp" alt="Автомобиль Урал" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Чикан</figcaption></figure>
     </div>
   </section>
 
-  <!-- ================= МАРКИ ================= -->
   <section class="brands container" aria-labelledby="brands-title">
     <div class="brands__head">
       <p class="mono" id="brands-title">Работаем с техникой</p>
@@ -576,65 +404,8 @@
     </ul>
   </section>
 
-  <!-- ================= ВОДИТЕЛЯМ ================= -->
-  <section class="drivers" id="drivers">
-    <div class="container drivers__grid">
-      <div>
-        <p class="eyebrow eyebrow--light">Водителям</p>
-        <h2 class="h-display h-display--light reveal">Работа<br><span class="muted-dark">за рулём</span></h2>
-        <p class="drivers__lead reveal">Приглашаем опытных водителей из Челябинской, Свердловской, Курганской областей и Республики Башкортостан. Перегоняем грузовые автомобили, спецтехнику и автобусы — Московская область, Забайкальский и Красноярский края, Магаданская, Костромская, Амурская области и другие направления.</p>
-        <figure class="drivers__photo reveal"><img src="assets/img/drivers.webp" alt="Водитель в кабине грузовика" loading="lazy" width="1000" height="500"></figure>
-      </div>
-      <div class="drivers__right">
-        <h3 class="list-title list-title--light reveal">Требования</h3>
-        <ul class="req reveal">
-          <li><span class="mono">01</span>Водительское удостоверение категорий C, D, E (одна или несколько)</li>
-          <li><span class="mono">02</span>Карта СКЗИ для тахографа (приветствуется)</li>
-          <li><span class="mono">03</span>Смартфон с доступом в интернет (Android, iOS)</li>
-          <li><span class="mono">04</span>Знание конструкции грузовых автомобилей</li>
-          <li><span class="mono">05</span>Опыт работы на грузовых автомобилях</li>
-          <li><span class="mono">06</span>Ответственность и пунктуальность</li>
-        </ul>
-        <div class="drivers__contacts reveal">
-          <a href="tel:+79220125489" class="big-link">8 (922) 012-54-89</a>
-          <a href="tel:+79226966656" class="big-link">8 (922) 696-66-56</a>
-          <button class="btn btn--white" data-open-order data-service="Вакансия водителя">Откликнуться на вакансию</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================= FAQ ================= -->
-  <section class="faq container" id="faq">
-    <div class="section-head">
-      <p class="eyebrow">Вопросы и ответы</p>
-      <h2 class="h-display reveal"><span class="muted">Часто</span><br>спрашивают</h2>
-    </div>
-    <div class="faq__list">
-      <details class="qa reveal">
-        <summary>Гарантируете ли вы сохранность груза?<i></i></summary>
-        <p>Да. При приёме груза мы проверяем качество и целостность упаковки, при передаче получателю — проверяем её снова. Груз страхуется. Если упаковка не повреждена, перевозчик не несёт ответственности за повреждения внутри неё; груз нами не вскрывается — это может сделать только получатель.</p>
-      </details>
-      <details class="qa reveal">
-        <summary>Как происходит оплата?<i></i></summary>
-        <p>С новыми клиентами работаем так: 50% предоплаты в день загрузки и 50% по факту предоставления техники на выгрузку. Оплата безналичная, с НДС или без НДС. Для постоянных клиентов возможна отсрочка платежа.</p>
-      </details>
-      <details class="qa reveal">
-        <summary>Беретесь ли вы за негабаритные грузы?<i></i></summary>
-        <p>Да. Для таких задач подбираем специальный транспорт (тралы), прокладываем отдельный маршрут и оформляем разрешительные документы.</p>
-      </details>
-      <details class="qa reveal">
-        <summary>Можно ли заказать перевозку с грузчиками?<i></i></summary>
-        <p>Безусловно. Профессиональные грузчики упрощают транспортировку крупных и тяжёлых грузов — всё будет доставлено в том же состоянии, в каком было передано, а вам не придётся контролировать погрузку.</p>
-      </details>
-      <details class="qa reveal">
-        <summary>За сколько нужно бронировать перегон?<i></i></summary>
-        <p>Лучше заранее — хотя бы за сутки до отправки. Но мы выполняем и срочные заказы: оперативно подберём водителя или транспорт и организуем доставку.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ================= КОНТАКТЫ ================= -->
+  <!-- ================= ЗАЯВКА / КОНТАКТЫ ================= -->
   <section class="contacts" id="contacts">
     <div class="contacts__glow" aria-hidden="true"></div>
     <div class="container contacts__grid">
@@ -675,22 +446,24 @@
       </form>
     </div>
   </section>
+
+
 </main>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <p class="footer__title mono">Навигация</p>
-        <a href="#about">О компании</a><a href="#services">Услуги</a><a href="#tariffs">Тарифы</a><a href="#works">Наши работы</a><a href="#drivers">Водителям</a><a href="#faq">Вопросы</a>
+        <p class="footer__title mono">Компания</p>
+        <a href="index.html">Главная</a><a href="about.html">О компании</a><a href="tariffs.html">Тарифы</a><a href="works.html">Наши работы</a><a href="drivers.html">Водителям</a><a href="contacts.html">Контакты</a>
       </div>
       <div>
         <p class="footer__title mono">Услуги</p>
-        <a href="#peregon">Перегон своим ходом</a><a href="#tral">Перевозка тралом</a><a href="#zip">Монтаж и крепление ЗИП</a><a href="#adblue">Отключение AdBlue</a>
+        <a href="peregon.html">Перегон своим ходом</a><a href="tral.html">Перевозка тралом</a><a href="zip.html">Монтаж и крепление ЗИП</a><a href="adblue.html">Отключение AdBlue</a><a href="services.html">Все услуги</a>
       </div>
       <div>
         <p class="footer__title mono">Связь</p>
-        <a href="tel:+79220125489">8 (922) 012-54-89</a><a href="tel:+79226966656">8 (922) 696-66-56</a><a href="mailto:uralsmt74@yandex.ru">uralsmt74@yandex.ru</a><span>г. Челябинск, ул. Разина, 4, оф. 803</span>
+        <a href="tel:+79220125489">8 (922) 012-54-89</a><a href="tel:+79226966656">8 (922) 696-66-56</a><a href="mailto:uralsmt74@yandex.ru">uralsmt74@yandex.ru</a><span>г. Челябинск, ул. Разина, 4, оф. 803</span><span>Пн–Вс, 7:00–18:00 (UTC+5)</span>
       </div>
       <div>
         <p class="footer__title mono">Реквизиты</p>
@@ -736,15 +509,22 @@
   </form>
 </dialog>
 
-<!-- Лайтбокс -->
+<!-- Просмотр фото -->
 <dialog class="lightbox" id="lightbox" aria-label="Просмотр фото">
   <button type="button" class="modal__close" data-close aria-label="Закрыть">×</button>
-  <img src="" alt="">
+  <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb="-1" aria-label="Предыдущее фото"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+  <figure>
+    <img src="" alt="">
+    <figcaption class="lightbox__cap"></figcaption>
+  </figure>
+  <button type="button" class="lightbox__nav lightbox__nav--next" data-lb="1" aria-label="Следующее фото"><svg><use href="#i-arrow"/></svg></button>
 </dialog>
+
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/land-dots.js" defer></script>
 <script src="assets/js/globe.js" defer></script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/transitions.js" defer></script>
 </body>
 </html>

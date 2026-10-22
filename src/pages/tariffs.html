@@ -1,0 +1,64 @@
+title: Тарифы на перегон техники и калькулятор — УралСМТ
+description: Тарифы на перегон техники своим ходом: шоссейные от 38 ₽/км, полноприводные от 40 ₽/км. Калькулятор стоимости, цены на монтаж и крепление ЗИП, условия оплаты.
+nav: tariffs
+---
+  <section class="page-hero page-hero--plain">
+    <div class="page-hero__glow" aria-hidden="true"></div>
+    <div class="container page-hero__inner">
+      <nav class="crumbs mono" aria-label="Навигационная цепочка"><a href="index.html">Главная</a><span>/</span><span aria-current="page">Тарифы</span></nav>
+      <h1 class="page-hero__title">
+        <span class="line"><span>Честная цена</span></span>
+        <span class="line"><span>за километр</span></span>
+      </h1>
+      <p class="page-hero__lead">Стоимость перегона зависит от колёсной формулы и массы техники. Ниже — базовые ставки и калькулятор для быстрой оценки.</p>
+    </div>
+    <div class="page-hero__meta mono">03 / Тарифы</div>
+  </section>
+  <div class="fade-band fade-band--short" aria-hidden="true"></div>
+
+  <section class="tariffs tariffs--page">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Перегон своим ходом</p>
+        <h2 class="h-display reveal"><span class="muted">Ставки</span><br>по типу техники</h2>
+      </div>
+{{> tariff-panels}}
+
+{{> calc}}
+    </div>
+  </section>
+
+  <section class="zip-prices container">
+    <div class="section-head">
+      <p class="eyebrow">Монтаж груза и крепление ЗИП</p>
+      <h2 class="h-display reveal"><span class="muted">Цены</span><br>на работы с ЗИП</h2>
+    </div>
+    <div class="zip-prices__grid">
+      <ul class="price-list reveal">
+        <li><span>Укомплектование ЗИП</span><b>от 7 000 ₽</b></li>
+        <li><span>Монтаж ЗИП</span><b>от 5 000 ₽</b></li>
+        <li><span>Укомплектование автомобилей</span><b>от 10 000 ₽</b></li>
+        <li><span>Изготовление ящиков</span><b>от 5 000 ₽</b></li>
+        <li><span>Монтаж и крепление груза</span><b>от 15 000 ₽</b></li>
+      </ul>
+      <div class="pay reveal">
+        <h3 class="list-title">Условия оплаты</h3>
+        <ul class="check-list">
+          <li><svg><use href="#i-check"/></svg>Новым клиентам: 50% в день загрузки, 50% по факту выгрузки</li>
+          <li><svg><use href="#i-check"/></svg>Безналичный расчёт с НДС и без НДС</li>
+          <li><svg><use href="#i-check"/></svg>Возможна отсрочка платежа и индивидуальные предложения</li>
+          <li><svg><use href="#i-check"/></svg>Бухгалтерские документы — вовремя</li>
+        </ul>
+        <a href="zip.html" class="btn btn--outline btn--sm">Подробнее о ЗИП</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="works.html" class="next-page">
+    <span class="container next-page__inner">
+      <span class="mono">Следующая страница</span>
+      <span class="next-page__title">Наши работы <svg><use href="#i-arrow"/></svg></span>
+    </span>
+  </a>
+
+{{> cta}}

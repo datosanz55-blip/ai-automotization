@@ -1,13 +1,20 @@
-/* УралСМТ — интерактив сайта */
+/* УралСМТ — интерактив сайта (общий для всех страниц) */
 (function () {
   'use strict';
 
   var CFG = window.SITE_CONFIG || {};
+  var root = document.documentElement;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
   var fmt = function (n) { return Math.round(n).toLocaleString('ru-RU'); };
+
+  // Анимации появления стартуют, когда шторка перехода открыла страницу
+  function whenReady(fn) {
+    if (root.classList.contains('is-ready')) fn();
+    else document.addEventListener('site:ready', fn, { once: true });
+  }
 
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
@@ -38,7 +45,12 @@
     })(t0);
   }
 
-  if ('IntersectionObserver' in window) {
+  whenReady(function () {
+    if (!('IntersectionObserver' in window)) {
+      $$('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+      $$('[data-count]').forEach(countUp);
+      return;
+    }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -48,76 +60,87 @@
         io.unobserve(en.target);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    $$('.reveal').forEach(function (el, i) {
+    $$('.reveal').forEach(function (el) {
       var sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
       el.style.transitionDelay = Math.min(sib, 6) * 70 + 'ms';
       io.observe(el);
     });
-  } else {
-    $$('.reveal').forEach(function (el) { el.classList.add('is-in'); });
-    $$('[data-count]').forEach(countUp);
-  }
+  });
 
   /* ---------- Скролл-сцены ---------- */
-  var drive = $('.drive');
-  var truck = $('#truck');
-  var word = $('.drive__word');
-  var wheels = $$('.wheel', truck);
-  var speedEl = $('#speed');
-  var tralImg = $('.tral__media img');
+  var drives = $$('.drive').map(function (sec) {
+    var truck = $('.drive__truck', sec);
+    return { sec: sec, truck: truck, word: $('.drive__word', sec), wheels: $$('.wheel', truck), speed: $('.speed', sec) };
+  });
+  var heroBg = $('.page-hero__bg');
+  var splitImg = $('.split__media img');
   var whyImg = $('.why__bg img');
+  var strip = $('.gallery-strip__track');
   var lastY = window.scrollY, speed = 0, ticking = false;
 
   function sectionProgress(el) {
     var r = el.getBoundingClientRect();
-    var vh = window.innerHeight;
-    return clamp(-r.top / (r.height - vh), 0, 1);
+    return clamp(-r.top / (r.height - window.innerHeight), 0, 1);
+  }
+  function inView(el) {
+    var r = el.getBoundingClientRect();
+    return r.bottom > 0 && r.top < window.innerHeight;
+  }
+  // Доля пути элемента через экран: 0 — только показался снизу, 1 — ушёл вверх
+  function passProgress(el) {
+    var r = el.getBoundingClientRect(), vh = window.innerHeight;
+    return clamp((vh - r.top) / (vh + r.height), 0, 1);
   }
 
   function onScroll() {
     ticking = false;
-    var y = window.scrollY, vw = window.innerWidth, vh = window.innerHeight;
+    var y = window.scrollY, vw = window.innerWidth;
     header.classList.toggle('is-scrolled', y > 40);
-
     if (reduceMotion) return;
 
-    // Грузовик едет вместе со скроллом
     var dp = Math.abs(y - lastY);
     lastY = y;
     speed += (dp - speed) * 0.25;
-    var rect = drive.getBoundingClientRect();
-    if (rect.bottom > 0 && rect.top < vh) {
-      var p = sectionProgress(drive);
-      var tw = truck.offsetWidth;
-      var x = -tw * 1.05 + p * (vw + tw * 1.1);
-      truck.style.transform = 'translate3d(' + x + 'px,0,0)';
-      var wr = tw * 38 / 640;
-      var angle = (x / wr) * 180 / Math.PI;
-      for (var i = 0; i < wheels.length; i++) wheels[i].style.transform = 'rotate(' + angle + 'deg)';
-      var ww = word.offsetWidth;
-      word.style.transform = 'translate3d(' + (vw * 0.55 - p * (ww + vw * 0.2)) + 'px,-78%,0)';
-      speedEl.textContent = String(Math.min(99, Math.round(speed * 0.9))).padStart(2, '0');
-    }
 
-    // Параллакс фото
-    if (tralImg) {
-      var tr = tralImg.parentElement.getBoundingClientRect();
-      if (tr.bottom > 0 && tr.top < vh) tralImg.style.transform = 'translate3d(0,' + (-(1 - (tr.bottom / (vh + tr.height))) * 16) + '%,0)';
-    }
-    if (whyImg) {
-      var wrc = whyImg.parentElement.getBoundingClientRect();
-      if (wrc.bottom > 0 && wrc.top < vh) {
-        var wp = clamp(1 - wrc.bottom / (vh + wrc.height), 0, 1);
-        whyImg.style.transform = 'scale(' + (1.25 - wp * 0.2) + ')';
-      }
-    }
+    drives.forEach(function (d) {
+      if (!inView(d.sec)) return;
+      var p = sectionProgress(d.sec);
+      var tw = d.truck.offsetWidth;
+      var x = -tw * 1.05 + p * (vw + tw * 1.1);
+      d.truck.style.transform = 'translate3d(' + x + 'px,0,0)';
+      var angle = (x / (tw * 38 / 640)) * 180 / Math.PI;
+      d.wheels.forEach(function (w) { w.style.transform = 'rotate(' + angle + 'deg)'; });
+      d.word.style.transform = 'translate3d(' + (vw * 0.55 - p * (d.word.offsetWidth + vw * 0.2)) + 'px,-78%,0)';
+      d.speed.textContent = String(Math.min(99, Math.round(speed * 0.9))).padStart(2, '0');
+    });
+
+    if (heroBg && inView(heroBg)) heroBg.style.transform = 'translate3d(0,' + (y * 0.25) + 'px,0)';
+    if (splitImg && inView(splitImg.parentElement)) splitImg.style.transform = 'translate3d(0,' + (-passProgress(splitImg.parentElement) * 12) + '%,0)';
+    if (whyImg && inView(whyImg.parentElement)) whyImg.style.transform = 'scale(' + (1.25 - passProgress(whyImg.parentElement) * 0.2) + ')';
+    if (strip && inView(strip)) strip.style.transform = 'translate3d(' + (-passProgress(strip) * (strip.scrollWidth - vw)) + 'px,0,0)';
   }
   function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }
   window.addEventListener('scroll', requestTick, { passive: true });
   window.addEventListener('resize', requestTick);
   onScroll();
   // Плавно гасим спидометр, когда скролл остановился
-  if (!reduceMotion) setInterval(function () { if (speed > 0.5) requestTick(); }, 120);
+  if (!reduceMotion && drives.length) setInterval(function () { if (speed > 0.5) requestTick(); }, 120);
+
+  /* ---------- Превью услуг за курсором ---------- */
+  var preview = $('.svc-preview');
+  if (preview && window.matchMedia('(hover: hover)').matches) {
+    var pImg = $('img', preview), px = 0, py = 0, tx = 0, ty = 0, pOn = false;
+    $$('[data-preview] [data-img]').forEach(function (row) {
+      row.addEventListener('mouseenter', function () { pImg.src = row.getAttribute('data-img'); preview.classList.add('is-on'); pOn = true; });
+      row.addEventListener('mouseleave', function () { preview.classList.remove('is-on'); pOn = false; });
+    });
+    window.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; });
+    (function follow() {
+      px += (tx - px) * 0.15; py += (ty - py) * 0.15;
+      preview.style.transform = 'translate3d(' + (px + 30) + 'px,' + (py - 120) + 'px,0) scale(' + (pOn ? 1 : 0.6) + ')';
+      requestAnimationFrame(follow);
+    })();
+  }
 
   /* ---------- Тарифы ---------- */
   var TARIFFS = {
@@ -136,6 +159,7 @@
 
   Object.keys(TARIFFS).forEach(function (key) {
     var panel = $('[data-panel="' + key + '"]');
+    if (!panel) return;
     var g = TARIFFS[key];
     panel.innerHTML = g.items.map(function (it, idx) {
       return '<article class="tariff" style="animation-delay:' + idx * 80 + 'ms">' +
@@ -170,76 +194,93 @@
   });
 
   /* ---------- Калькулятор ---------- */
-  var cGroup = $('#calc-group'), cFormula = $('#calc-formula'), cTon = $('#calc-tonnage');
-  var cRange = $('#calc-range'), cKm = $('#calc-km'), cRate = $('#calc-rate'), cTotal = $('#calc-total');
+  var cGroup = $('#calc-group');
+  if (cGroup) {
+    var cFormula = $('#calc-formula'), cTon = $('#calc-tonnage');
+    var cRange = $('#calc-range'), cKm = $('#calc-km'), cRate = $('#calc-rate'), cTotal = $('#calc-total');
+    var fillFormulas = function () {
+      cFormula.innerHTML = TARIFFS[cGroup.value].items.map(function (it, i) { return '<option value="' + i + '">' + it.f + '</option>'; }).join('');
+    };
+    var calc = function () {
+      var g = TARIFFS[cGroup.value];
+      var it = g.items[+cFormula.value || 0];
+      var rate = it.rates[+cTon.value];
+      var km = clamp(parseInt(cKm.value, 10) || 0, 0, 15000);
+      cRate.textContent = rate;
+      cTotal.textContent = fmt(rate * km);
+      return { group: g.kind, formula: it.f, tonnage: TONNAGE[+cTon.value], km: km, rate: rate, total: rate * km };
+    };
+    cGroup.addEventListener('change', function () { fillFormulas(); calc(); });
+    cFormula.addEventListener('change', calc);
+    cTon.addEventListener('change', calc);
+    cRange.addEventListener('input', function () { cKm.value = cRange.value; calc(); });
+    cKm.addEventListener('input', function () { cRange.value = clamp(+cKm.value || 0, +cRange.min, +cRange.max); calc(); });
+    fillFormulas(); calc();
 
-  function fillFormulas() {
-    var g = TARIFFS[cGroup.value];
-    cFormula.innerHTML = g.items.map(function (it, i) { return '<option value="' + i + '">' + it.f + '</option>'; }).join('');
-  }
-  function calc() {
-    var g = TARIFFS[cGroup.value];
-    var it = g.items[+cFormula.value || 0];
-    var rate = it.rates[+cTon.value];
-    var km = clamp(parseInt(cKm.value, 10) || 0, 0, 15000);
-    cRate.textContent = rate;
-    cTotal.textContent = fmt(rate * km);
-    return { group: g.kind, formula: it.f, tonnage: TONNAGE[+cTon.value], km: km, rate: rate, total: rate * km };
-  }
-  cGroup.addEventListener('change', function () { fillFormulas(); calc(); });
-  cFormula.addEventListener('change', calc);
-  cTon.addEventListener('change', calc);
-  cRange.addEventListener('input', function () { cKm.value = cRange.value; calc(); });
-  cKm.addEventListener('input', function () { cRange.value = clamp(+cKm.value || 0, +cRange.min, +cRange.max); calc(); });
-  fillFormulas(); calc();
-
-  $('#calc-order').addEventListener('click', function () {
-    var r = calc();
-    openOrder('Перегон колёсной техники своим ходом',
-      'Расчёт с сайта: ' + r.group.toLowerCase() + ', ' + r.formula + ', ' + r.tonnage + ', ' + fmt(r.km) + ' км × ' + r.rate + ' ₽/км ≈ от ' + fmt(r.total) + ' ₽. Маршрут: ');
-  });
-
-  /* ---------- Галерея ---------- */
-  var track = $('#works-track');
-  $$('[data-scroll]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var card = track.querySelector('.work');
-      var step = card ? card.offsetWidth + 16 : 400;
-      track.scrollBy({ left: step * +b.getAttribute('data-scroll'), behavior: reduceMotion ? 'auto' : 'smooth' });
+    $('#calc-order').addEventListener('click', function () {
+      var r = calc();
+      openOrder('Перегон колёсной техники своим ходом',
+        'Расчёт с сайта: ' + r.group.toLowerCase() + ', ' + r.formula + ', ' + r.tonnage + ', ' + fmt(r.km) + ' км × ' + r.rate + ' ₽/км ≈ от ' + fmt(r.total) + ' ₽. Маршрут: ');
     });
-  });
-  // Перетаскивание мышью
-  var down = false, startX = 0, startLeft = 0, moved = 0;
-  track.addEventListener('pointerdown', function (e) {
-    if (e.pointerType !== 'mouse') return;
-    down = true; moved = 0; startX = e.clientX; startLeft = track.scrollLeft;
-  });
-  window.addEventListener('pointermove', function (e) {
-    if (!down) return;
-    var dx = e.clientX - startX;
-    moved = Math.max(moved, Math.abs(dx));
-    if (moved > 5) track.classList.add('is-drag');
-    track.scrollLeft = startLeft - dx;
-  });
-  window.addEventListener('pointerup', function () {
-    if (!down) return;
-    down = false;
-    setTimeout(function () { track.classList.remove('is-drag'); }, 0);
-  });
+  }
 
-  var lightbox = $('#lightbox');
-  var lbImg = $('img', lightbox);
-  $$('[data-lightbox]').forEach(function (b) {
-    b.addEventListener('click', function (e) {
-      if (moved > 5) { e.preventDefault(); return; }
-      lbImg.src = b.getAttribute('data-lightbox');
-      lbImg.alt = $('img', b).alt;
-      showDialog(lightbox);
+  /* ---------- Карусель работ ---------- */
+  var track = $('#works-track');
+  var dragMoved = 0;
+  if (track) {
+    $$('[data-scroll]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var card = track.querySelector('.work');
+        var step = card ? card.offsetWidth + 16 : 400;
+        track.scrollBy({ left: step * +b.getAttribute('data-scroll'), behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+    var down = false, startX = 0, startLeft = 0;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      down = true; dragMoved = 0; startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      dragMoved = Math.max(dragMoved, Math.abs(dx));
+      if (dragMoved > 5) track.classList.add('is-drag');
+      track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false;
+      setTimeout(function () { track.classList.remove('is-drag'); dragMoved = 0; }, 0);
+    });
+  }
+
+  /* ---------- Фильтр работ ---------- */
+  var chips = $$('.chip[data-filter]');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function (c) {
+        var on = c === chip;
+        c.classList.toggle('is-active', on);
+        c.setAttribute('aria-pressed', String(on));
+      });
+      $$('.wgrid__item').forEach(function (it, i) {
+        var show = f === 'all' || it.getAttribute('data-cat') === f;
+        it.classList.toggle('is-hidden', !show);
+        it.classList.remove('is-pop');
+        if (show && !reduceMotion) {
+          void it.offsetWidth; // перезапуск анимации
+          it.style.animationDelay = Math.min(i, 12) * 30 + 'ms';
+          it.classList.add('is-pop');
+        }
+        it.classList.add('is-in');
+      });
     });
   });
 
   /* ---------- Модальные окна ---------- */
   var modal = $('#order-modal');
+  var lightbox = $('#lightbox');
 
   function showDialog(d) {
     if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
@@ -254,6 +295,35 @@
     $$('[data-close]', d).forEach(function (b) { b.addEventListener('click', function () { closeDialog(d); }); });
   });
 
+  /* ---------- Лайтбокс с листанием ---------- */
+  var lbImg = $('img', lightbox), lbCap = $('.lightbox__cap', lightbox), lbList = [], lbIndex = 0;
+  function lbShow(i) {
+    lbIndex = (i + lbList.length) % lbList.length;
+    var b = lbList[lbIndex];
+    lbImg.src = b.getAttribute('data-lightbox');
+    lbImg.alt = $('img', b) ? $('img', b).alt : '';
+    lbCap.textContent = b.getAttribute('data-caption') || '';
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-lightbox]');
+    if (!b) return;
+    if (dragMoved > 5) { e.preventDefault(); return; }
+    var group = b.closest('.wgrid, .works__track, .photo-row') || b.parentElement;
+    lbList = $$('[data-lightbox]', group).filter(function (x) { return !x.closest('.is-hidden'); });
+    if (lbList.length > 1) lightbox.setAttribute('data-multi', ''); else lightbox.removeAttribute('data-multi');
+    lbShow(lbList.indexOf(b));
+    showDialog(lightbox);
+  });
+  $$('[data-lb]', lightbox).forEach(function (b) {
+    b.addEventListener('click', function () { lbShow(lbIndex + +b.getAttribute('data-lb')); });
+  });
+  lightbox.addEventListener('keydown', function (e) {
+    if (lbList.length < 2) return;
+    if (e.key === 'ArrowRight') lbShow(lbIndex + 1);
+    if (e.key === 'ArrowLeft') lbShow(lbIndex - 1);
+  });
+
+  /* ---------- Заявка ---------- */
   function openOrder(service, message) {
     var form = $('form', modal);
     var sel = form.elements.service;

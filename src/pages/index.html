@@ -1,0 +1,168 @@
+title: УралСМТ — перегон грузовых автомобилей и спецтехники по России
+description: ООО «УралСибМегаТранс» — перегон грузовых автомобилей, спецтехники и автобусов своим ходом по всей России, перевозка на тралах, монтаж и крепление ЗИП. Тарифы от 38 ₽/км. Челябинск.
+nav: home
+scripts: globe
+head_extra: jsonld
+---
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-label="Главный экран">
+    <div class="hero__bar">
+      <div class="ticker" aria-label="География перегонов">
+        <span class="ticker__label">Маршруты:</span>
+        <div class="ticker__track">
+          <div class="ticker__move">
+            <span>Миасс → Санкт-Петербург</span><span>Иркутск → Большой Камень</span><span>Миасс → Усть-Луга</span><span>Миасс → Красноярск</span><span>Миасс → Невер</span><span>Миасс → Магнитогорск</span><span>Миасс → Челябинск</span>
+            <span aria-hidden="true">Миасс → Санкт-Петербург</span><span aria-hidden="true">Иркутск → Большой Камень</span><span aria-hidden="true">Миасс → Усть-Луга</span><span aria-hidden="true">Миасс → Красноярск</span><span aria-hidden="true">Миасс → Невер</span><span aria-hidden="true">Миасс → Магнитогорск</span><span aria-hidden="true">Миасс → Челябинск</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__bar-right">
+        <a href="tariffs.html#calc">Калькулятор стоимости</a>
+        <span class="sep">|</span>
+        <span>Пн–Вс 7:00–18:00 (UTC+5)</span>
+      </div>
+    </div>
+
+    <canvas class="globe" id="globe" aria-hidden="true"></canvas>
+
+    <div class="hero__content container">
+      <p class="eyebrow eyebrow--light">Перегон своим ходом</p>
+      <h1 class="hero__title">
+        <span class="line"><span>Каждый</span></span>
+        <span class="line"><span>километр</span></span>
+        <span class="line"><span>под контролем</span></span>
+      </h1>
+      <p class="hero__lead">Перегоняем грузовые автомобили, спецтехнику и автобусы своим ходом и на тралах по всей России. Одна команда отвечает за технику от приёмки до передачи заказчику.</p>
+      <div class="hero__actions">
+        <a href="tariffs.html#calc" class="btn btn--white">Рассчитать стоимость</a>
+        <a href="services.html" class="btn btn--ghost">Наши услуги</a>
+      </div>
+    </div>
+    <div class="hero__hint" aria-hidden="true"><span></span>Листайте</div>
+  </section>
+
+  <div class="fade-band" aria-hidden="true"></div>
+
+  <!-- ================= О КОМПАНИИ ================= -->
+  <section class="about container" id="about">
+    <div class="about__left">
+      <figure class="about__photo reveal">
+        <img src="assets/img/about-lineup.webp" alt="Колонна новых автомобилей «Урал», подготовленных к перегону" loading="lazy" width="1600" height="1200">
+      </figure>
+      <h2 class="h-display reveal">
+        <span class="muted">Перегоняем технику.</span><br>
+        Отвечаем за результат.
+      </h2>
+    </div>
+    <div class="about__right">
+      <div class="about__text reveal">
+        <p>ООО «УралСибМегаТранс» специализируется на перегоне автотранспорта и спецтехники по территории Российской Федерации <strong>своим ходом</strong>. Наши специалисты профессионально и оперативно решают вопросы доставки техники.</p>
+        <p>Один договор, один менеджер и прозрачные условия — без перекладывания ответственности между подрядчиками. К каждому клиенту — индивидуальный подход.</p>
+        <a href="about.html" class="btn btn--outline btn--sm">Подробнее о компании</a>
+      </div>
+
+      <p class="stats__caption reveal">Цифры, за которыми — реальные рейсы</p>
+      <ul class="stats">
+        <li class="stat reveal">
+          <div class="stat__num"><span data-count="900">0</span>+</div>
+          <div class="stat__label">единиц техники доставлено своим ходом</div>
+        </li>
+        <li class="stat reveal">
+          <div class="stat__num"><span data-count="38">0</span>&nbsp;₽</div>
+          <div class="stat__label">стартовый тариф за километр перегона</div>
+        </li>
+        <li class="stat reveal">
+          <div class="stat__num"><span data-count="7">0</span>/7</div>
+          <div class="stat__label">работаем без выходных, с 7:00 до 18:00 (UTC+5)</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= СЦЕНА С ГРУЗОВИКОМ ================= -->
+  <section class="drive" aria-label="Наши услуги">
+    <div class="drive__sticky">
+      <div class="drive__speed mono"><span class="speed">00</span> КМ/Ч</div>
+      <div class="drive__word" aria-hidden="true">Наши услуги</div>
+      <div class="drive__truck" aria-hidden="true">
+{{> truck}}
+      </div>
+      <div class="drive__road" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ================= УСЛУГИ ================= -->
+  <section class="services" id="services">
+    <div class="container services__head">
+      <h2 class="h-display h-display--light reveal">
+        Всё, что нужно вашей технике.<br>
+        <span class="muted-dark">Одна команда<span class="accent">.</span></span>
+      </h2>
+      <div class="services__intro reveal">
+        <p>От перегона нового грузовика с завода до перевозки негабарита на трале и подготовки документов — мы берём на себя всю логистику.</p>
+        <p>Один партнёр, один контакт и полная прозрачность от точки отправления до точки назначения.</p>
+      </div>
+    </div>
+    <div class="container">
+{{> svc-grid}}
+      <div class="services__foot reveal">
+        <a href="services.html" class="btn btn--ghost">Все услуги</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ТАРИФЫ (КРАТКО) ================= -->
+  <section class="teaser container">
+    <div class="section-head">
+      <p class="eyebrow">Тарифы</p>
+      <h2 class="h-display reveal"><span class="muted">Честная цена</span><br>за каждый километр</h2>
+    </div>
+    <div class="teaser__grid">
+      <a href="tariffs.html" class="teaser__card reveal">
+        <span class="mono">Шоссейные · 4×2, 6×4, 8×4</span>
+        <span class="teaser__price">от <b>38</b> ₽/км</span>
+        <span class="teaser__more">Все тарифы <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="tariffs.html" class="teaser__card reveal">
+        <span class="mono">Полноприводные · 4×4, 6×6, 8×4</span>
+        <span class="teaser__price">от <b>40</b> ₽/км</span>
+        <span class="teaser__more">Все тарифы <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="tariffs.html#calc" class="teaser__card teaser__card--dark reveal">
+        <span class="mono">Калькулятор</span>
+        <span class="teaser__price teaser__price--sm">Рассчитайте перегон за&nbsp;минуту</span>
+        <span class="teaser__more">Рассчитать <svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+{{> why}}
+
+  <!-- ================= НАШИ РАБОТЫ ================= -->
+  <section class="works" id="works">
+    <div class="container works__head">
+      <h2 class="h-display reveal"><span class="muted">Наши</span><br>работы</h2>
+      <div class="works__side reveal">
+        <p>Реальные рейсы наших водителей: от заводов Миасса и Челябинска до портов Балтики и Дальнего Востока.</p>
+        <div class="works__nav">
+          <button class="round-btn" data-scroll="-1" aria-label="Назад"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+          <button class="round-btn" data-scroll="1" aria-label="Вперёд"><svg><use href="#i-arrow"/></svg></button>
+          <a href="works.html" class="btn btn--outline btn--sm">Все работы</a>
+        </div>
+      </div>
+    </div>
+    <div class="works__track" id="works-track" tabindex="0" aria-label="Галерея работ">
+      <figure class="work"><button data-lightbox="assets/img/work-spb.webp"><img src="assets/img/work-spb.webp" alt="Пожарные автомобили на базе Урал" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Санкт-Петербург</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/work-irkutsk-2.webp"><img src="assets/img/work-irkutsk-2.webp" alt="Колонна грузовиков Shacman" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Иркутск → Большой Камень</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/work-ustluga-2.webp"><img src="assets/img/work-ustluga-2.webp" alt="Автомобиль-фургон на шасси Урал" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Усть-Луга</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/work-krasnoyarsk.webp"><img src="assets/img/work-krasnoyarsk.webp" alt="Грузовики КАМАЗ" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Красноярск</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/tral-night.webp"><img src="assets/img/tral-night.webp" alt="Трал с техникой ночью" loading="lazy"></button><figcaption><span class="mono">Трал</span>Перевозка спецтехники</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/work-never.webp"><img src="assets/img/work-never.webp" alt="КАМАЗ с крано-манипуляторной установкой" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Невер</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/work-magnitogorsk.webp"><img src="assets/img/work-magnitogorsk.webp" alt="Техника на выставке в Магнитогорске" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Миасс → Магнитогорск</figcaption></figure>
+      <figure class="work"><button data-lightbox="assets/img/bus-paz.webp"><img src="assets/img/bus-paz.webp" alt="Автобусы ПАЗ" loading="lazy"></button><figcaption><span class="mono">Перегон</span>Автобусы ПАЗ</figcaption></figure>
+    </div>
+  </section>
+
+{{> brands}}
+
+{{> cta}}

@@ -3,32 +3,125 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Политика конфиденциальности — УралСМТ</title>
-  <meta name="robots" content="noindex">
+  <title>Политика обработки персональных данных — УралСМТ</title>
+  <meta name="description" content="Политика обработки персональных данных ООО «УралСибМегаТранс».">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="canonical" href="https://uralsmt.ru/policy.html">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Политика обработки персональных данных — УралСМТ">
+  <meta property="og:description" content="Политика обработки персональных данных ООО «УралСибМегаТранс».">
+  <meta property="og:image" content="assets/img/about-lineup.webp">
+
+  <script>
+    /* Если пришли с другой страницы сайта — сразу закрыть экран шторкой, чтобы не было вспышки */
+    (function (d) {
+      d.documentElement.classList.add('js');
+      try {
+        var t = sessionStorage.getItem('pt-title');
+        if (t !== null) { d.documentElement.classList.add('pt-enter'); window.__ptTitle = t; sessionStorage.removeItem('pt-title'); }
+      } catch (e) {}
+    })(document);
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    .policy { max-width: 820px; padding-top: 140px; padding-bottom: 100px; }
-    .policy h1 { font-family: var(--f-display); text-transform: uppercase; font-size: clamp(26px, 4vw, 44px); line-height: 1.05; margin-bottom: 40px; }
-    .policy h2 { font-family: var(--f-display); font-size: 18px; text-transform: uppercase; margin: 36px 0 12px; }
-    .policy p, .policy li { color: #3c3c42; }
-    .policy ul { list-style: disc; padding-left: 22px; margin-bottom: 1em; }
-    .policy-top { position: fixed; inset: 0 0 auto 0; background: var(--black); color: var(--white); z-index: 10; }
-    .policy-top .header__inner { padding-top: 16px; padding-bottom: 16px; }
-  </style>
+
 </head>
-<body>
-  <header class="policy-top">
-    <div class="header__inner">
-      <a href="index.html" class="logo"><span class="logo__mark">УРАЛ<b>СМТ</b></span></a>
-      <div class="header__right"><a href="index.html" class="btn btn--white btn--sm">На главную</a></div>
+<body class="page-policy">
+
+<!-- Шторка перехода между страницами -->
+<div class="pt" aria-hidden="true">
+  <div class="pt__layer pt__layer--a"></div>
+  <div class="pt__layer pt__layer--b">
+    <div class="pt__inner">
+      <span class="pt__label mono">УралСМТ · перегон по России</span>
+      <span class="pt__title"><span id="pt-title"></span></span>
+      <div class="pt__route"><i></i></div>
     </div>
-  </header>
-  <main class="container policy">
-    <h1>Политика обработки персональных данных</h1>
+  </div>
+</div>
+<script>if (window.__ptTitle) document.getElementById('pt-title').textContent = window.__ptTitle;</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-road" viewBox="0 0 32 32"><path d="M11 3 6 29M21 3l5 26M16 5v4M16 14v4M16 23v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-tral" viewBox="0 0 32 32"><path d="M2 20h20v-5h-5V9H9v6H2zM22 20h8v-4l-3-4h-5zM2 23h28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7" cy="25" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="25" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="26" cy="25" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 32 32"><rect x="5" y="9" width="22" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 15h22M12 9v16M20 9v16M3 5l26 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 32 32"><path d="M16 3c5 7 8 11 8 16a8 8 0 0 1-16 0c0-5 3-9 8-16z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 27 27 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 32 32"><rect x="9" y="9" width="14" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13 9V4M19 9V4M13 28v-5M19 28v-5M9 13H4M9 19H4M28 13h-5M28 19h-5M13 16h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 32 32"><path d="M20 4a7 7 0 0 0-6.6 9.3L4 22.7 9.3 28l9.4-9.4A7 7 0 0 0 28 12l-4.2 4.2-4.6-1.4-1.4-4.6L22 6a7 7 0 0 0-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 32 32"><path d="M8 3h11l6 6v20H8z M19 3v6h6M12 15h9M12 20h9M12 25h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 32 32"><path d="M16 29s9-9 9-16a9 9 0 0 0-18 0c0 7 9 16 9 16z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 3 5 7v8c0 7 5 12 11 14 6-2 11-7 11-14V7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m11 16 4 4 7-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ruble" viewBox="0 0 32 32"><path d="M11 28V5h7a6 6 0 0 1 0 12h-10M8 22h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-user" viewBox="0 0 32 32"><circle cx="16" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 28c1.5-6 6-9 11-9s9.5 3 11 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 9v7l5 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 32 32"><path d="M3 12l5-4 5 2 3-1 3 1 5-2 5 4M8 8l-5 10 4 3M24 8l5 10-4 3M10 19l3 3 2-2 2 2 2-2 2 2 3-3-6-6-3 2-2-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 32 32"><path d="M9 4h4l2 6-3 2a15 15 0 0 0 8 8l2-3 6 2v4a3 3 0 0 1-3 3C14 26 6 18 6 7a3 3 0 0 1 3-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 9 12 9 12-9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="index.html" class="logo" aria-label="УралСМТ — на главную">
+      <span class="logo__mark">УРАЛ<b>СМТ</b></span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="about.html">О компании</a>
+      <a href="services.html">Услуги</a>
+      <a href="tariffs.html">Тарифы</a>
+      <a href="works.html">Работы</a>
+      <a href="drivers.html">Водителям</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header__right">
+      <a class="header__phone" href="tel:+79220125489">8 (922) 012-54-89</a>
+      <button class="btn btn--white btn--sm" data-open-order>Заказать перегон</button>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <nav aria-label="Мобильная навигация">
+    <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="services.html">Услуги</a>
+      <a href="tariffs.html">Тарифы</a>
+      <a href="works.html">Работы</a>
+      <a href="drivers.html">Водителям</a>
+      <a href="contacts.html">Контакты</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a href="tel:+79220125489">8 (922) 012-54-89</a>
+    <a href="mailto:uralsmt74@yandex.ru">uralsmt74@yandex.ru</a>
+    <span>Пн–Вс, 7:00–18:00 (UTC+5)</span>
+  </div>
+</div>
+
+<main id="top">
+  <section class="page-hero page-hero--plain page-hero--short">
+    <div class="page-hero__glow" aria-hidden="true"></div>
+    <div class="container page-hero__inner">
+      <nav class="crumbs mono" aria-label="Навигационная цепочка"><a href="index.html">Главная</a><span>/</span><span aria-current="page">Политика</span></nav>
+      <h1 class="page-hero__title page-hero__title--sm">
+        <span class="line"><span>Политика обработки</span></span>
+        <span class="line"><span>персональных данных</span></span>
+      </h1>
+    </div>
+  </section>
+
+  <article class="container policy">
+
 
     <p>Настоящая политика определяет порядок обработки персональных данных пользователей сайта ООО «УралСибМегаТранс» (ИНН 7451465072, ОГРН 1237400030196, адрес: 454111, г. Челябинск, ул. Разина, д. 4, офис 803) — далее «Оператор» — в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
 
@@ -54,6 +147,84 @@
 
     <h2>6. Контакты</h2>
     <p>По вопросам обработки персональных данных: <a href="mailto:uralsmt74@yandex.ru">uralsmt74@yandex.ru</a>, тел. <a href="tel:+79220125489">8 (922) 012-54-89</a>.</p>
-  </main>
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__title mono">Компания</p>
+        <a href="index.html">Главная</a><a href="about.html">О компании</a><a href="tariffs.html">Тарифы</a><a href="works.html">Наши работы</a><a href="drivers.html">Водителям</a><a href="contacts.html">Контакты</a>
+      </div>
+      <div>
+        <p class="footer__title mono">Услуги</p>
+        <a href="peregon.html">Перегон своим ходом</a><a href="tral.html">Перевозка тралом</a><a href="zip.html">Монтаж и крепление ЗИП</a><a href="adblue.html">Отключение AdBlue</a><a href="services.html">Все услуги</a>
+      </div>
+      <div>
+        <p class="footer__title mono">Связь</p>
+        <a href="tel:+79220125489">8 (922) 012-54-89</a><a href="tel:+79226966656">8 (922) 696-66-56</a><a href="mailto:uralsmt74@yandex.ru">uralsmt74@yandex.ru</a><span>г. Челябинск, ул. Разина, 4, оф. 803</span><span>Пн–Вс, 7:00–18:00 (UTC+5)</span>
+      </div>
+      <div>
+        <p class="footer__title mono">Реквизиты</p>
+        <span>ООО «УралСибМегаТранс»</span><span>ИНН 7451465072</span><span>ОГРН 1237400030196</span>
+      </div>
+    </div>
+    <div class="footer__word" aria-hidden="true">УРАЛСМТ</div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> ООО «УралСибМегаТранс». Перегон автотранспорта и спецтехники по России.</span>
+      <a href="policy.html">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Модальное окно заявки -->
+<dialog class="modal" id="order-modal" aria-labelledby="order-title">
+  <form class="lead-form lead-form--modal" data-lead-form novalidate>
+    <button type="button" class="modal__close" data-close aria-label="Закрыть">×</button>
+    <p class="eyebrow">Логистическая компания «УралСМТ»</p>
+    <h3 class="lead-form__title" id="order-title">Заказать услугу</h3>
+    <p class="modal__sub">Оставьте контакты — перезвоним в ближайшее время.</p>
+    <label class="field field--dark"><span>Услуга</span>
+      <select name="service">
+        <option>Перегон колёсной техники своим ходом</option>
+        <option>Перевозка техники на тралах</option>
+        <option>Крепление грузов</option>
+        <option>Отключение AdBlue</option>
+        <option>Прошивка + чип-тюнинг</option>
+        <option>Сервис и доработка</option>
+        <option>Подготовка спец. документов</option>
+        <option>Вакансия водителя</option>
+      </select>
+    </label>
+    <div class="lead-form__row">
+      <label class="field field--dark"><span>Имя</span><input name="name" autocomplete="name" required></label>
+      <label class="field field--dark"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+7 (___) ___-__-__"></label>
+    </div>
+    <label class="field field--dark"><span>Сообщение</span><textarea name="message" rows="3"></textarea></label>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="consent"><input type="checkbox" name="consent" required> <span>Согласен на обработку персональных данных в соответствии с <a href="policy.html" target="_blank">политикой конфиденциальности</a></span></label>
+    <button class="btn btn--white btn--block" type="submit">Отправить</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
+
+<!-- Просмотр фото -->
+<dialog class="lightbox" id="lightbox" aria-label="Просмотр фото">
+  <button type="button" class="modal__close" data-close aria-label="Закрыть">×</button>
+  <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb="-1" aria-label="Предыдущее фото"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+  <figure>
+    <img src="" alt="">
+    <figcaption class="lightbox__cap"></figcaption>
+  </figure>
+  <button type="button" class="lightbox__nav lightbox__nav--next" data-lb="1" aria-label="Следующее фото"><svg><use href="#i-arrow"/></svg></button>
+</dialog>
+
+
+<script src="assets/js/config.js"></script>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/transitions.js" defer></script>
 </body>
 </html>
