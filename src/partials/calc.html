@@ -1,0 +1,47 @@
+      <!-- Калькулятор -->
+      <div class="calc reveal" id="calc">
+        <div class="calc__head">
+          <p class="eyebrow eyebrow--light">Калькулятор</p>
+          <h3 class="calc__title">Предварительный расчёт перегона</h3>
+          <p class="calc__sub">Оценка по базовому тарифу. Точную стоимость менеджер назовёт после согласования маршрута и сроков.</p>
+        </div>
+        <form class="calc__form" id="calc-form" onsubmit="return false">
+          <label class="field">
+            <span>Тип техники</span>
+            <select name="group" id="calc-group">
+              <option value="awd">Полноприводная</option>
+              <option value="road">Шоссейная</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Колёсная формула</span>
+            <select name="formula" id="calc-formula"></select>
+          </label>
+          <label class="field">
+            <span>Масса</span>
+            <select name="tonnage" id="calc-tonnage">
+              <option value="0">до 10 тонн</option>
+              <option value="1">до 16 тонн</option>
+              <option value="2">до 25 тонн</option>
+            </select>
+          </label>
+          <label class="field field--wide">
+            <span>Расстояние, км</span>
+            <div class="range">
+              <input type="range" id="calc-range" min="50" max="10000" step="50" value="2000" aria-label="Расстояние, км">
+              <input type="number" id="calc-km" min="1" max="15000" value="2000" inputmode="numeric" aria-label="Расстояние в километрах">
+            </div>
+          </label>
+        </form>
+        <div class="calc__result">
+          <div>
+            <div class="calc__label">Ставка</div>
+            <div class="calc__rate"><span id="calc-rate">40</span> ₽/км</div>
+          </div>
+          <div>
+            <div class="calc__label">Стоимость перегона</div>
+            <div class="calc__total">от <span id="calc-total">80 000</span> ₽</div>
+          </div>
+          <button class="btn btn--white" id="calc-order">Отправить заявку с расчётом</button>
+        </div>
+      </div>

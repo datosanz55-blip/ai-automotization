@@ -1,0 +1,55 @@
+title: Услуги — УралСМТ
+description: Перегон техники своим ходом, перевозка на тралах, монтаж и крепление ЗИП, отключение AdBlue, прошивка, сервис и подготовка спецдокументов.
+nav: services
+og_image: assets/img/ural-blue.webp
+---
+  <section class="page-hero">
+    <div class="page-hero__bg"><img src="assets/img/ural-blue.webp" alt="" width="1600" height="901"></div>
+    <div class="container page-hero__inner">
+      <nav class="crumbs mono" aria-label="Навигационная цепочка"><a href="index.html">Главная</a><span>/</span><span aria-current="page">Услуги</span></nav>
+      <h1 class="page-hero__title">
+        <span class="line"><span>Всё для вашей</span></span>
+        <span class="line"><span>техники</span></span>
+      </h1>
+      <p class="page-hero__lead">От перегона нового грузовика с завода до перевозки негабарита на трале и подготовки документов — берём на себя всю логистику.</p>
+    </div>
+    <div class="page-hero__meta mono">02 / Услуги</div>
+  </section>
+
+  <div class="fade-band fade-band--short" aria-hidden="true"></div>
+
+  <!-- ================= СЦЕНА С ГРУЗОВИКОМ ================= -->
+  <section class="drive" aria-label="Наши услуги">
+    <div class="drive__sticky">
+      <div class="drive__speed mono"><span class="speed">00</span> КМ/Ч</div>
+      <div class="drive__word" aria-hidden="true">Наши услуги</div>
+      <div class="drive__truck" aria-hidden="true">
+{{> truck}}
+      </div>
+      <div class="drive__road" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="svc-list-sec">
+    <div class="container">
+      <ol class="svc-rows" data-preview>
+        <li class="reveal"><a href="peregon.html" data-img="assets/img/work-irkutsk-2.webp"><span class="mono">01</span><span class="svc-rows__title">Перегон своим ходом</span><span class="svc-rows__desc">Грузовики, спецтехника и автобусы — с опытными водителями категорий C, D, E</span><svg><use href="#i-arrow"/></svg></a></li>
+        <li class="reveal"><a href="tral.html" data-img="assets/img/tral-urals.webp"><span class="mono">02</span><span class="svc-rows__title">Перевозка тралом</span><span class="svc-rows__desc">Габаритные и негабаритные грузы по России и СНГ</span><svg><use href="#i-arrow"/></svg></a></li>
+        <li class="reveal"><a href="zip.html" data-img="assets/img/zip-boxes.webp"><span class="mono">03</span><span class="svc-rows__title">Монтаж и крепление ЗИП</span><span class="svc-rows__desc">Изготовление ящиков, укомплектование, монтаж, крепление груза</span><svg><use href="#i-arrow"/></svg></a></li>
+        <li class="reveal"><a href="adblue.html" data-img="assets/img/adblue-1.webp"><span class="mono">04</span><span class="svc-rows__title">Отключение AdBlue</span><span class="svc-rows__desc">Без потери мощности, аварийного режима и дорогого ремонта</span><svg><use href="#i-arrow"/></svg></a></li>
+        <li class="reveal"><button data-open-order data-service="Прошивка + чип-тюнинг" data-img="assets/img/adblue-2.webp"><span class="mono">05</span><span class="svc-rows__title">Прошивка и чип-тюнинг</span><span class="svc-rows__desc">Настройка блоков управления под условия эксплуатации</span><svg><use href="#i-arrow"/></svg></button></li>
+        <li class="reveal"><button data-open-order data-service="Сервис и доработка" data-img="assets/img/kamaz-8x8.webp"><span class="mono">06</span><span class="svc-rows__title">Сервис и доработка</span><span class="svc-rows__desc">Подготовка техники к перегону и доработка под задачи заказчика</span><svg><use href="#i-arrow"/></svg></button></li>
+        <li class="reveal"><button data-open-order data-service="Подготовка спец. документов" data-img="assets/img/tral-ural.webp"><span class="mono">07</span><span class="svc-rows__title">Подготовка спецдокументов</span><span class="svc-rows__desc">Разрешения на перевозку и полный пакет отчётных документов</span><svg><use href="#i-arrow"/></svg></button></li>
+      </ol>
+    </div>
+    <div class="svc-preview" aria-hidden="true"><img src="" alt=""></div>
+  </section>
+
+  <a href="peregon.html" class="next-page">
+    <span class="container next-page__inner">
+      <span class="mono">Подробнее</span>
+      <span class="next-page__title">Перегон своим ходом <svg><use href="#i-arrow"/></svg></span>
+    </span>
+  </a>
+
+{{> cta}}

@@ -1,0 +1,84 @@
+title: Перегон грузовиков и спецтехники своим ходом — УралСМТ
+description: Перегон грузовых автомобилей, спецтехники и автобусов своим ходом по России. Опытные водители категорий C, D, E. Тарифы от 38 ₽/км.
+nav: services
+og_image: assets/img/work-irkutsk-2.webp
+---
+  <section class="page-hero">
+    <div class="page-hero__bg"><img src="assets/img/work-irkutsk-2.webp" alt="" width="1599" height="1200"></div>
+    <div class="container page-hero__inner">
+      <nav class="crumbs mono" aria-label="Навигационная цепочка"><a href="index.html">Главная</a><span>/</span><a href="services.html">Услуги</a><span>/</span><span aria-current="page">Перегон</span></nav>
+      <h1 class="page-hero__title">
+        <span class="line"><span>Перегон</span></span>
+        <span class="line"><span>своим ходом</span></span>
+      </h1>
+      <p class="page-hero__lead">Доставляем колёсную технику по дорогам России с нашими водителями: от приёмки на заводе до передачи ключей заказчику.</p>
+      <div class="hero__actions">
+        <a href="tariffs.html#calc" class="btn btn--white">Рассчитать стоимость</a>
+        <button class="btn btn--ghost" data-open-order data-service="Перегон колёсной техники своим ходом">Оставить заявку</button>
+      </div>
+    </div>
+    <div class="page-hero__meta mono">Услуга 01 / 04</div>
+  </section>
+  <div class="fade-band fade-band--short" aria-hidden="true"></div>
+
+  <section class="about container">
+    <div class="about__left">
+      <h2 class="h-display reveal"><span class="muted">Что мы</span><br>перегоняем</h2>
+    </div>
+    <div class="about__right">
+      <div class="about__text reveal">
+        <p>Специалисты нашей организации профессионально и оперативно решают вопросы доставки техники. К каждому клиенту — индивидуальный подход.</p>
+      </div>
+      <ul class="kinds reveal">
+        <li><span class="mono">01</span>Грузовые автомобили — шоссейные и полноприводные</li>
+        <li><span class="mono">02</span>Спецтехника: автокраны, КМУ, автобетоносмесители, автоцистерны</li>
+        <li><span class="mono">03</span>Пожарные автомобили и автомобили-фургоны</li>
+        <li><span class="mono">04</span>Автобусы</li>
+        <li><span class="mono">05</span>Шасси без надстройки</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="drive" aria-label="Своим ходом">
+    <div class="drive__sticky">
+      <div class="drive__speed mono"><span class="speed">00</span> КМ/Ч</div>
+      <div class="drive__word" aria-hidden="true">Своим ходом</div>
+      <div class="drive__truck" aria-hidden="true">
+{{> truck}}
+      </div>
+      <div class="drive__road" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="tariffs tariffs--after-road">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Тарифы на перегон</p>
+        <h2 class="h-display reveal"><span class="muted">Честная цена</span><br>за каждый километр</h2>
+        <p class="section-head__text reveal">Стоимость зависит от колёсной формулы и массы техники. Точный расчёт — в <a href="tariffs.html#calc">калькуляторе</a> или у менеджера.</p>
+      </div>
+{{> tariff-panels}}
+    </div>
+  </section>
+
+{{> process}}
+
+  <section class="gallery-strip">
+    <div class="gallery-strip__track">
+      <img src="assets/img/work-spb.webp" alt="Пожарные автомобили на базе Урал" loading="lazy">
+      <img src="assets/img/crane-kamaz.webp" alt="Автокран КАМАЗ" loading="lazy">
+      <img src="assets/img/work-ustluga.webp" alt="Автобетоносмесители на шасси Урал" loading="lazy">
+      <img src="assets/img/shacman-gold.webp" alt="Тягач Shacman с полуприцепом" loading="lazy">
+      <img src="assets/img/bus-paz-row.webp" alt="Автобусы ПАЗ" loading="lazy">
+      <img src="assets/img/kamaz-8x8.webp" alt="КАМАЗ" loading="lazy">
+    </div>
+  </section>
+
+  <a href="tral.html" class="next-page">
+    <span class="container next-page__inner">
+      <span class="mono">Следующая услуга</span>
+      <span class="next-page__title">Перевозка тралом <svg><use href="#i-arrow"/></svg></span>
+    </span>
+  </a>
+
+{{> cta}}

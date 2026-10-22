@@ -1,0 +1,41 @@
+<!-- Модальное окно заявки -->
+<dialog class="modal" id="order-modal" aria-labelledby="order-title">
+  <form class="lead-form lead-form--modal" data-lead-form novalidate>
+    <button type="button" class="modal__close" data-close aria-label="Закрыть">×</button>
+    <p class="eyebrow">Логистическая компания «УралСМТ»</p>
+    <h3 class="lead-form__title" id="order-title">Заказать услугу</h3>
+    <p class="modal__sub">Оставьте контакты — перезвоним в ближайшее время.</p>
+    <label class="field field--dark"><span>Услуга</span>
+      <select name="service">
+        <option>Перегон колёсной техники своим ходом</option>
+        <option>Перевозка техники на тралах</option>
+        <option>Крепление грузов</option>
+        <option>Отключение AdBlue</option>
+        <option>Прошивка + чип-тюнинг</option>
+        <option>Сервис и доработка</option>
+        <option>Подготовка спец. документов</option>
+        <option>Вакансия водителя</option>
+      </select>
+    </label>
+    <div class="lead-form__row">
+      <label class="field field--dark"><span>Имя</span><input name="name" autocomplete="name" required></label>
+      <label class="field field--dark"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+7 (___) ___-__-__"></label>
+    </div>
+    <label class="field field--dark"><span>Сообщение</span><textarea name="message" rows="3"></textarea></label>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="consent"><input type="checkbox" name="consent" required> <span>Согласен на обработку персональных данных в соответствии с <a href="policy.html" target="_blank">политикой конфиденциальности</a></span></label>
+    <button class="btn btn--white btn--block" type="submit">Отправить</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
+
+<!-- Просмотр фото -->
+<dialog class="lightbox" id="lightbox" aria-label="Просмотр фото">
+  <button type="button" class="modal__close" data-close aria-label="Закрыть">×</button>
+  <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb="-1" aria-label="Предыдущее фото"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+  <figure>
+    <img src="" alt="">
+    <figcaption class="lightbox__cap"></figcaption>
+  </figure>
+  <button type="button" class="lightbox__nav lightbox__nav--next" data-lb="1" aria-label="Следующее фото"><svg><use href="#i-arrow"/></svg></button>
+</dialog>
